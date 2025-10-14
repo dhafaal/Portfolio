@@ -131,15 +131,15 @@ export default function SkillsSection() {
 
         {/* Horizontal Scrollable Skills */}
         <div className="relative">
-          {/* Gradient overlays for scroll indication */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          {/* Gradient overlays for scroll indication - hidden on mobile for better UX */}
+          <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-12 lg:w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-12 lg:w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           
           <motion.div 
             style={{ opacity, scale }}
-            className="overflow-x-auto scrollbar-hide pb-8"
+            className="overflow-x-auto scrollbar-hide pb-8 -mx-4 px-4 sm:mx-0 sm:px-0"
           >
-            <div className="flex gap-6 px-4 min-w-max">
+            <div className="flex gap-4 sm:gap-6 px-2 sm:px-4 min-w-max">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -149,14 +149,15 @@ export default function SkillsSection() {
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="group"
                 >
-                  <div className="relative bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg hover:border-gray-300 w-40 sm:w-48">
+                  <div className="relative bg-white rounded-2xl border border-gray-200 p-4 sm:p-6 lg:p-8 transition-all duration-300 hover:shadow-lg hover:border-gray-300 w-32 sm:w-40 lg:w-48">
                     {/* Decorative blur on hover */}
                     <div className="absolute -inset-2 bg-gray-100 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 -z-10" />
 
                     {/* Icon */}
-                    <div className="flex flex-col items-center gap-4">
+                    <div className="flex flex-col items-center gap-3 sm:gap-4">
                       <motion.div 
                         whileHover={{ scale: 1.1, rotate: 5 }}
+                        whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.3 }}
                         className="text-gray-900 group-hover:text-black transition-colors duration-300"
                       >
@@ -164,7 +165,7 @@ export default function SkillsSection() {
                       </motion.div>
 
                       {/* Skill Name */}
-                      <h3 className="text-sm sm:text-base font-semibold text-gray-900 text-center">
+                      <h3 className="text-xs sm:text-sm lg:text-base font-semibold text-gray-900 text-center leading-tight">
                         {skill.name}
                       </h3>
                     </div>
@@ -181,7 +182,7 @@ export default function SkillsSection() {
                         ease: "easeInOut",
                         delay: index * 0.2 
                       }}
-                      className="absolute top-4 right-4 w-12 h-12 bg-gray-900 rounded-full blur-2xl pointer-events-none"
+                      className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 bg-gray-900 rounded-full blur-2xl pointer-events-none"
                     />
                   </div>
                 </motion.div>
@@ -194,14 +195,15 @@ export default function SkillsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="text-center mt-6"
+            className="text-center mt-4 sm:mt-6"
           >
-            <p className="text-xs text-gray-400 flex items-center justify-center gap-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <p className="text-[10px] sm:text-xs text-gray-400 flex items-center justify-center gap-1 sm:gap-2">
+              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
               </svg>
-              Scroll to see more
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="hidden sm:inline">Scroll to see more</span>
+              <span className="sm:hidden">Swipe to see more</span>
+              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </p>

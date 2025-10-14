@@ -43,14 +43,14 @@ export default function HomeSection() {
 
       <motion.div 
         style={{ opacity, scale }}
-        className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10"
+        className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12 relative z-10"
       >
         {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, x: -50 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="flex-1 flex justify-center lg:justify-start w-full max-w-md lg:max-w-none"
+          className="flex-1 flex justify-center lg:justify-start w-full max-w-xs sm:max-w-md lg:max-w-none"
         >
           <div className="relative group w-full">
             {/* Decorative border */}

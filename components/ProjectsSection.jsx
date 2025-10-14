@@ -116,7 +116,7 @@ export default function ProjectsSection() {
           {/* Projects Grid */}
           <motion.div 
             style={{ opacity, scale }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
           >
             {projects.map((project, index) => (
               <motion.div
@@ -133,7 +133,7 @@ export default function ProjectsSection() {
                   <div className="absolute -inset-2 bg-gray-100 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 -z-10" />
 
                   {/* Image Container */}
-                  <div className="relative h-64 bg-gray-200 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 lg:h-64 bg-gray-200 overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.name}
@@ -148,11 +148,11 @@ export default function ProjectsSection() {
                   </div>
 
                   {/* Project Info */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                       {project.name}
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">
                       {project.description}
                     </p>
                   </div>
@@ -193,7 +193,7 @@ export default function ProjectsSection() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+            className="bg-white rounded-xl sm:rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative mx-4"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -205,14 +205,14 @@ export default function ProjectsSection() {
             </button>
 
             {/* Modal Content */}
-            <div className="p-6 sm:p-8">
+            <div className="p-4 sm:p-6 lg:p-8">
               {/* Project Name */}
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 pr-8">
                 {selectedProject.name}
               </h2>
 
               {/* Project Image */}
-              <div className="relative h-64 sm:h-96 bg-gray-200 rounded-xl overflow-hidden mb-6">
+              <div className="relative h-48 sm:h-64 lg:h-96 bg-gray-200 rounded-lg sm:rounded-xl overflow-hidden mb-4 sm:mb-6">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.name}
@@ -223,7 +223,7 @@ export default function ProjectsSection() {
               </div>
 
               {/* Project Description */}
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8">
                 {selectedProject.description}
               </p>
 
@@ -232,10 +232,10 @@ export default function ProjectsSection() {
                 href={selectedProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-colors duration-300"
+                className="inline-flex items-center gap-2 sm:gap-3 px-5 sm:px-6 py-2.5 sm:py-3 bg-gray-900 text-white rounded-full text-sm font-semibold hover:bg-gray-800 transition-colors duration-300"
               >
-                <FaGithub className="w-5 h-5" />
-                <span>GITHUB</span>
+                <FaGithub className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>VIEW ON GITHUB</span>
               </a>
             </div>
           </motion.div>

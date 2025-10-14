@@ -51,7 +51,7 @@ export default function AboutSection() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-12 xl:gap-16 relative z-10">
+      <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:gap-12 xl:gap-16 relative z-10">
         
         {/* Text Content */}
         <motion.div 
@@ -155,7 +155,7 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex-1 flex justify-center order-1 lg:order-2 w-full max-w-md lg:max-w-none"
+          className="flex-1 flex justify-center order-1 lg:order-2 w-full max-w-xs sm:max-w-md lg:max-w-none"
         >
           <div className="relative group w-full">
             {/* Decorative border */}
